@@ -259,7 +259,7 @@ class CityListScreen(private val viewModel: CityViewModel) : BaseScreen() {
                     ) {
                         Text(
                             text = "${city.name}, ${city.country}",
-                            fontSize = 15.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             style = MaterialTheme.typography.titleLarge,
                             color = Color.Black,
