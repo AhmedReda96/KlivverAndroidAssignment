@@ -11,10 +11,8 @@ open class BaseScreen {
     protected fun handleUI(
         viewState: UiViewState?
     ) {
-        println("test- UiViewState ${viewState?.request}")
-
         when (viewState) {
-            is UiViewState.Loading<*> -> showLoader(viewState)
+            is UiViewState.Loading<*> -> showLoader()
             is UiViewState.Error<*> -> hideLoader()
             is UiViewState.Success<*> -> with(viewState) {
                 hideLoader()
@@ -30,11 +28,11 @@ open class BaseScreen {
     protected open fun handleResponse(response: ApiResponse<*>) {
     }
 
-    protected fun hideLoader() { isLoading.value = false }
+    protected fun hideLoader() {
+        isLoading.value = false
+    }
 
-    protected fun showLoader(viewState: UiViewState.Loading<*>) {
-    println("test- ${viewState.request}")
+    protected fun showLoader() {
         isLoading.value = true
-
     }
 }
